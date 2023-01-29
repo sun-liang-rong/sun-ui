@@ -1,72 +1,72 @@
 @import '../../style/index.css';
 .sun-button {
   @mixin inset-button;
-  padding: 10px 20px;
+  padding: rem(10px 20px);
   color: #fff;
-  border-radius: 3px;
-  &.primary {
+  border-radius: rem(3px);
+  &.sun-primary {
     border: 1px solid #1989fa;
     background-color: #1989fa;
   }
   //plain
-  &.primary.plain {
+  &.sun-primary.sun-plain {
     background-color: #fff;
     color: #1989fa;
   }
   //disabled
   
 
-  &.success {
+  &.sun-success {
     border: 1px solid #07c160;
     background-color: #07c160;
   }
-  &.success.plain {
+  &.sun-success.sun-plain {
     background-color: #fff;
     color: #07c160;
   }
-  &.default {
+  &.sun-default {
     background-color: #ffffff;
     color: #333;
     border: 1px solid #ebedf0;
   }
-  &.warning {
+  &.sun-warning {
     border: 1px solid #ff976a;
     background-color: #ff976a;
   }
-  &.warning.plain {
+  &sun-.warning.sun-plain {
     background-color: #fff;
     color: #ff976a;
   }
-  &.danger {
+  &.sun-danger {
     border: 1px solid #ee0a24;
     background-color: #ee0a24;
     
   }
-  &.danger.plain {
+  &.sun-danger.sun-plain {
     background-color: #fff;
     color: #ee0a24;
   }
   &:hover {
     cursor: pointer;
   }
-  &.disabled {
+  &.sun-disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
-  &.square {
+  &.sun-square {
     border-radius: 0;
   }
-  &.round {
-    border-radius: 20px;
+  &.sun-round {
+    border-radius: rem(20px);
   }
-  &.small {
-    padding: 6px 12px;
+  &.sun-small {
+    padding: rem(6px 12px);
   }
-  &.mini {
-    padding: 4px 8px;
+  &.sun-mini {
+    padding: rem(4px 8px);
   }
-  &.large {
-    padding: 15px 100px;
-    font-size: 24px;
+  &.sun-large {
+    padding: rem(15px 100px);
+    font-size: rem(24px);
   }
 }

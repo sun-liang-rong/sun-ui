@@ -1,7 +1,7 @@
-import * as components from './components/index'
+import * as components from '@/components/index'
 import { forEach } from 'lodash-es'
 import type { App } from 'vue'
-import './style/base/inset.css'
+import '@/style/index.css'
 // const sunInstall = {
 //   install: (app: App) => {
 //     // for(let i; i < components.length; i++){

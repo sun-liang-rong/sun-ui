@@ -1,6 +1,8 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
+import postcssRem from 'postcss-rem'
 import postcssMixins from 'postcss-mixins'
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,7 +24,15 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [postcssMixins]
+      plugins: [postcssMixins, postcssRem]
     }
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  },
+  test: {
+    environment: "happy-dom"
   }
 })
