@@ -1,0 +1,12 @@
+@define-mixin inset-button {
+  border-radius: 0px;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  box-shadow: inset 0px 0px 0px 0px #fff;
+  background-color: initial;
+  font-size: initial;
+  color: #111;
+  background: #fff;
+  outline: none;
+  border: none;
+}
