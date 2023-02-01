@@ -1,18 +1,14 @@
 <template>
   <div class="container">
-    <sun-button type="default">hello</sun-button>
-    <sun-button type="primary" plain>hello</sun-button>
-    <sun-button color="#7232dd" size="large" plain>hello</sun-button>
-    <sun-button type="warning" size="mini" disabled>hello</sun-button>
-    <sun-button type="danger" size="small" round square plain>hello</sun-button>
+    <myMode/>
+    <modal/>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, reactive, toRefs } from "vue";
-export default defineComponent({
-  
-})
+<script lang="ts" setup>
+import { reactive, toRefs } from "vue";
+import myMode from "./components/demo/index.vue";
+import modal from './components/modal/index.vue'
 </script>
 
 <style lang="less" scoped></style>
