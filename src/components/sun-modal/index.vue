@@ -1,24 +1,46 @@
 <template>
   <Teleport to="body">
-    <div class="modal_container">
+    <div class="modal_container" v-if="showModal">
       <div class="pop_box">
         <div class="title">提示</div>
-        <div class="container">我今天吃饭了</div>
+        <div class="container">
+          <slot v-if="!title"></slot>
+          {{ title }}
+        </div>
         <div class="pop_button">
           <div class="left">
-            <button>取消</button>
+            <button @click="cancel">取消</button>
           </div>
           <div class="right">
-            <button>确定</button>
+            <button @click="confirm">确定</button>
           </div>
         </div>
       </div>
     </div>
   </Teleport>
 </template>
-
+<script lang="ts">
+export default {
+  name: "sunModal",
+};
+</script>
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, toRefs } from "vue";
+import { useModal } from './index'
+const emit = defineEmits(['confirm', 'cancel'])
+const props = defineProps({
+  title: {
+    type: String,
+    default: ''
+  },
+  showModal: {
+    type: Boolean,
+    default: ''
+  }
+})
+const usemodal = useModal(emit, props)
+const { cancel, confirm } = toRefs(usemodal)
+
 </script>
 
 <style lang="less" scoped>
@@ -37,7 +59,8 @@ import { ref } from "vue";
   .pop_box {
     width: rem(300px);
     // margin:auto;
-    min-height: 200px;
+    min-height: rem(200px);
+    max-height: rem(350px);
     background-color: #fff;
     border-radius: 10px;
     display: flex;
@@ -46,23 +69,25 @@ import { ref } from "vue";
     align-items: center;
     .title {
       width: 100%;
-      height: 60px;
+      height: rem(60px);
       text-align: center;
       color: #1989fa;
-      line-height: 60px;
+      line-height: rem(60px);
       border-bottom: 0.5px solid #ccc;
     }
     .container {
-        width: 100%;
-        // height: 100%;
-        flex: 1;
-        text-align: center;
-        line-height: 30px;
+      overflow-y: auto;
+      width: 100%;
+      max-height: rem(230px);
+      // height: 100%;
+      flex: 1;
+      text-align: center;
+      line-height: rem(30px);
     }
     .pop_button {
       border-top: 1px solid #ccc;
       width: 100%;
-      height: 60px;
+      height: rem(60px);
       display: flex;
       justify-content: space-evenly;
       align-items: center;
@@ -74,7 +99,7 @@ import { ref } from "vue";
         button {
           background: none;
           border: none;
-          padding: 5px 10px;
+          padding: rem(5px 10px);
           width: 100%;
           color: #ccc;
         }
@@ -86,7 +111,7 @@ import { ref } from "vue";
         button {
           background: none;
           border: none;
-          padding: 5px 10px;
+          padding: rem(5px 10px);
           width: 100%;
           color: #1989fa;
         }

@@ -20,13 +20,14 @@ import {
   reactive,
   toRefs,
   computed,
+onMounted,
 } from "vue";
 
 const props = defineProps({
     //按钮颜色
     type: {
       type: String,
-      default: "sun-default",
+      default: "default",
     },
     //按钮是否是朴素按钮
     plain: {
@@ -55,7 +56,7 @@ const props = defineProps({
     color: {
       type: String,
       default: "",
-    },
+    }
   })
 
   const computedClass = computed(() => {
@@ -63,7 +64,13 @@ const props = defineProps({
       } ${props.square ? "sun-square" : ""} ${props.round ? "sun-round" : ""} ${props.size ? 'sun-' + props.size : ""
       }`;
   })
+  onMounted(() => {
+    let element = document.getElementById('app')
+    console.log(element, 'element', props.type)
+  })
 
+  
+ 
 </script>
 
 <style lang="less" scoped>

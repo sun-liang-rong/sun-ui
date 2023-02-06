@@ -1,5 +1,5 @@
 <template>
-  <div class="container">position {{ x }}, {{ y }}</div>
+  <!-- <div class="container">position {{ x }}, {{ y }}</div> -->
 </template>
 <script lang="ts">
 export default {
@@ -10,9 +10,9 @@ export default {
 import { toRefs } from "vue";
 import { useMove } from "./index";
 
-const { position } = useMove();
-const { x, y } = toRefs(position);
-console.log(x, y);
+// const { position } = useMove();
+// const { x, y } = toRefs(position);
+// console.log(x, y);
 </script>
 
 <style lang="less" scoped>
